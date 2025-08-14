@@ -13,7 +13,6 @@ const Cart = ({ cart, handleRemoveFromCart }) => {
                 : alert("Empty Cart");
         }
     };
-    console.log(isOrderConfirmed);
 
     return (
         <div className={cx("container")}>
@@ -48,9 +47,9 @@ const Cart = ({ cart, handleRemoveFromCart }) => {
                                 />
                                 <path
                                     stroke="#fff"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width=".974"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth=".974"
                                     d="m81.076 28.966 34.187-4.16"
                                 />
                                 <path
@@ -71,9 +70,9 @@ const Cart = ({ cart, handleRemoveFromCart }) => {
                                 />
                                 <path
                                     stroke="#fff"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width=".974"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth=".974"
                                     d="M9.796 52.06c-.667 5.866 16.24 12.586 37.733 15.04 14.774 1.68 27.867.906 34.854-1.654"
                                 />
                             </svg>

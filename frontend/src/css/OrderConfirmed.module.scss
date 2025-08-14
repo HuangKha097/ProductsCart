@@ -1,4 +1,5 @@
 .container {
+    z-index: 1000;
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -71,6 +72,7 @@
 
 @media screen {
     .container {
+        z-index: 1000;
         align-items: flex-end;
         & .order-confirmed {
             transform: translateY(0%);
