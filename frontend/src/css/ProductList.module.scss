@@ -1,0 +1,21 @@
+.container {
+    & h2 {
+        font-size: 3.5rem;
+        margin-bottom: 30px;
+        font-weight: 700;
+    }
+    & .product-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Luôn 3 cột */
+        gap: 20px; /* Khoảng cách giữa các ô */
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        & .product-wrapper {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

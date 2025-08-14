@@ -1,0 +1,103 @@
+.container {
+    gap: 40px;
+    background-color: #fff;
+    min-height: 350px;
+
+    border-radius: 15px;
+    & .cart-wrapper {
+        padding: 20px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        & span {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+        & .empty {
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            gap: 20px;
+            & p {
+                color: #89635a;
+                font-weight: 600;
+            }
+        }
+        & .body {
+            width: 100%;
+            & .filled {
+                & .cart-items {
+                    padding: 10px;
+                    min-height: 250px;
+                    max-height: 250px;
+                    overflow-y: auto;
+                    & .item {
+                        display: flex;
+                        justify-content: space-between;
+                        padding-bottom: 5px;
+                        font-weight: 500;
+                        & button {
+                            border: none;
+                            background-color: transparent;
+                            color: #caafa7;
+
+                            :hover {
+                                cursor: pointer;
+                                color: #a1330e;
+                            }
+                        }
+                    }
+                }
+                & .order-total {
+                    margin-top: 30px;
+                    display: flex;
+                    justify-content: space-between;
+                    & span {
+                        font-size: 2.5rem;
+                        font-weight: 700;
+                        color: var(--primary-color);
+                        display: block;
+                    }
+                }
+            }
+            & .more-notes {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                background-color: #feeadb;
+                padding: 15px;
+                border-radius: 8px;
+                margin-top: 20px;
+                & p {
+                    & strong {
+                        font-weight: 600;
+                    }
+                }
+            }
+            & .confirm-order {
+                margin-top: 30px;
+                & button {
+                    width: 100%;
+                    padding: 15px;
+                    border-radius: 999px;
+                    background-color: #a1330e;
+                    color: #fff;
+                    font-weight: 600;
+                    border: none;
+
+                    &:hover {
+                        cursor: pointer;
+                        opacity: 0.9;
+                    }
+                }
+            }
+        }
+    }
+}

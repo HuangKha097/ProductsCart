@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+
+    & .product-list {
+        width: 60%;
+    }
+
+    & .cart {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        & .product-list,
+        & .cart {
+            width: 100%;
+        }
+    }
+}
