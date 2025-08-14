@@ -14,6 +14,8 @@ const Product = ({
 }) => {
     const [countProduct, setCount] = useState(0);
 
+    // filter se tra ve mot mang moi, mang moi chi chua cac phan tu co name giong name truyen vao
+    // filter != find : find tra ve phan tu DAU TIEN co name giong name truyen vao con filter tra ve TAT CA cac phan tu co name giong name truyen vao
     useEffect(() => {
         setCount(cart.filter((item) => item.name === name).length);
     }, [cart]);

@@ -81,40 +81,66 @@ const Cart = ({ cart, handleRemoveFromCart }) => {
                     ) : (
                         <div className={cx("filled")}>
                             <div className={cx("cart-items")}>
-                                {cart.map((item, index) => (
-                                    <div className={cx("item")} key={index}>
-                                        {item.name} - ${item.price}
-                                        <button
-                                            onClick={() =>
-                                                handleRemoveFromCart(item.name)
-                                            }
-                                        >
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="15"
-                                                height="15"
-                                                fill="none"
-                                                viewBox="0 0 10 10"
-                                            >
-                                                <path
-                                                    fill="currentColor"
-                                                    d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
-                                                />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                ))}
+                                {cart.map((item, index) => {
+                                    return (
+                                        <div className={cx("item")} key={index}>
+                                            <div className={cx("name")}>
+                                                {item.name}
+                                                <button
+                                                    onClick={() =>
+                                                        handleRemoveFromCart(
+                                                            item.name
+                                                        )
+                                                    }
+                                                >
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="15"
+                                                        height="15"
+                                                        fill="none"
+                                                        viewBox="0 0 10 10"
+                                                    >
+                                                        <path
+                                                            fill="currentColor"
+                                                            d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
+                                                        />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div className={cx("price")}>
+                                                &times; {item.quantity} - $
+                                                {(
+                                                    item.price * item.quantity
+                                                ).toFixed(2)}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
                             </div>
                             <div className={cx("order-total")}>
                                 <span>Order Total</span>
+                                {/* reduce: khi muon nhan ve 1 gia tri cuoi cung duy nhat cua mang da chuyen
+                                    something.reduce(accumulator, currentValue, currentIndex, originalArray) */}
+                                {/*
+                                 var total = 0;
+                                for(var item of cart){
+                                    total += item.price;
+                                }
+                                 */}
+
                                 <span>
                                     $
                                     {cart
                                         .reduce(
-                                            (total, item) => total + item.price,
+                                            (total, item) =>
+                                                total +
+                                                item.price *
+                                                    (item.quantity || 1),
                                             0
+                                            // 0 la gia tri khoi tao
                                         )
                                         .toFixed(2)}
+                                    {/* toFixed(2): lam tron 2 so thap phan */}
                                 </span>
                             </div>
                             <div className={cx("more-notes")}>

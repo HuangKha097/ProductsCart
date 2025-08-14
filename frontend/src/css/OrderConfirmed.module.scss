@@ -70,7 +70,7 @@
     }
 }
 
-@media screen {
+@media screen and (max-width: 768px) {
     .container {
         z-index: 1000;
         align-items: flex-end;

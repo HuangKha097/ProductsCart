@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import className from "classnames/bind";
 import styles from "../src/css/OrderConfirmed.module.scss";
 import Cart from "./Cart";

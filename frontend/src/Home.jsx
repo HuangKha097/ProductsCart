@@ -21,16 +21,51 @@ const Home = () => {
     }, []);
 
     const handleAddToCart = (item) => {
-        setCart([...cart, item]);
+        setCart((prevCart) => {
+            const existingItemIndex = prevCart.findIndex(
+                (cartItem) => cartItem.name === item.name
+            );
+
+            if (existingItemIndex !== -1) {
+                // Tăng số lượng sản phẩm đã có
+                return prevCart.map((cartItem, index) =>
+                    index === existingItemIndex
+                        ? {
+                              ...cartItem,
+                              quantity: (cartItem.quantity || 1) + 1,
+                          }
+                        : cartItem
+                );
+            } else {
+                // Thêm sản phẩm mới với quantity = 1
+                return [...prevCart, { ...item, quantity: 1 }];
+            }
+        });
     };
 
     const handleRemoveFromCart = (name) => {
-        const index = cart.findIndex((item) => item.name === name);
-        if (index !== -1) {
-            setCart(cart.filter((_, i) => i !== index));
-        }
+        setCart((prevCart) => {
+            const existingItemIndex = prevCart.findIndex(
+                (item) => item.name === name
+            );
+
+            if (existingItemIndex !== -1) {
+                const existingItem = prevCart[existingItemIndex];
+                if ((existingItem.quantity || 1) > 1) {
+                    // Giảm số lượng
+                    return prevCart.map((item, index) =>
+                        index === existingItemIndex
+                            ? { ...item, quantity: item.quantity - 1 }
+                            : item
+                    );
+                } else {
+                    // Xóa nếu quantity = 1
+                    return prevCart.filter((_, i) => i !== existingItemIndex);
+                }
+            }
+            return prevCart;
+        });
     };
-    console.log(isShowScroll);
 
     return (
         <div className={cx("content")}>

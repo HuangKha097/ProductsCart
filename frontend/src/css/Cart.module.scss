@@ -36,8 +36,22 @@
                     min-height: 250px;
                     max-height: 250px;
                     overflow-y: auto;
+                    & .name {
+                        font-weight: 600;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+
+                    & .price {
+                        font-weight: 600;
+                        font-size: 1.2rem;
+                        color: var(--primary-color);
+                        display: flex;
+                        justify-content: space-between;
+                    }
                     & .item {
                         display: flex;
+                        flex-direction: column;
                         justify-content: space-between;
                         padding-bottom: 5px;
                         font-weight: 500;
