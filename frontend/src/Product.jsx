@@ -17,8 +17,9 @@ const Product = ({
     // filter se tra ve mot mang moi, mang moi chi chua cac phan tu co name giong name truyen vao
     // filter != find : find tra ve phan tu DAU TIEN co name giong name truyen vao con filter tra ve TAT CA cac phan tu co name giong name truyen vao
     useEffect(() => {
-        setCount(cart.filter((item) => item.name === name).length);
-    }, [cart]);
+        const cartItem = cart.find((item) => item.name === name);
+        setCount(cartItem ? cartItem.quantity : 0);
+    }, [cart, name]);
 
     return (
         <div className={cx("product-wrapper")}>
@@ -31,7 +32,9 @@ const Product = ({
                 {!cart.find((item) => item.name.includes(name)) ? (
                     <button
                         className={cx("add-to-cart-btn")}
-                        onClick={() => handleAddToCart()}
+                        onClick={() =>
+                            handleAddToCart({ image, name, category, price })
+                        }
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +69,14 @@ const Product = ({
                         <span className={cx("count")}>{countProduct}</span>
                         <button
                             className={cx("plus")}
-                            onClick={() => handleAddToCart()}
+                            onClick={() =>
+                                handleAddToCart({
+                                    image,
+                                    name,
+                                    category,
+                                    price,
+                                })
+                            }
                         >
                             &#43;
                         </button>

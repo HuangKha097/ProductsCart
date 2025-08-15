@@ -34,7 +34,8 @@ const OrderConfirmed = ({ cart, onClose }) => {
                 <div className={cx("body")}>
                     {cart.map((item, index) => (
                         <div className={cx("item")} key={index}>
-                            {item.name} - ${item.price}{" "}
+                            <div>{item.name}</div>
+                            <div>{item.quantity}</div>
                         </div>
                     ))}
                 </div>
